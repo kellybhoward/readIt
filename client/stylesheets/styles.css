@@ -1,0 +1,148 @@
+* {
+    margin: 0px;
+    padding: 0px;
+    font-family: "Oxygen", sans-serif;
+}
+/*Sticky Footer in Materialize*/
+body {
+    display: flex;
+    min-height: 100vh;
+    flex-direction: column;
+}
+main {
+    flex: 1 0 auto;
+}
+
+/* parallax divs*/
+.wrapper{
+	float: left;
+	width: 100%;
+	height: auto;
+}
+.image-fill{
+	width: 100%;
+	height: 800px;
+    padding-top: 60px;
+}
+.image-fill div{
+    background-size:contain; !important;
+    background-repeat: no-repeat !important;
+    width: 100% !important;
+    /*height: auto !important;*/
+}
+
+.clear{
+    clear: both;
+}
+
+.sampleShare{
+    max-width: 70%;
+    height: auto;
+}
+.loginButton{
+    background-image: url(../images/Retina/Sign-in-Large---Default.png);
+    height: 40px;
+    width: 215px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    margin: 0px auto;
+}
+.loginButton:hover{
+    background-image: url(../images/Retina/Sign-in-Large---Hover.png);
+}
+.addLI{
+    background-image: url(../images/Retina/Add-to-Profile-Large---Default.png);
+    height: 40px;
+    width: 215px;
+    background-repeat: no-repeat;
+    background-size: contain;
+    display: inline-block;
+}
+.addLI:hover{
+    background-image: url(../images/Retina/Add-to-Profile-Large---Hover.png);
+}
+input[type=text]:focus:not([readonly]), input[type=search]:focus:not([readonly]), textarea.materialize-textarea:focus:not([readonly]){
+    border-bottom: 1px solid #652424 !important;
+    box-shadow: 0 1px 0 0 #652424 !important;
+}
+select{
+    display: inline-flex !important;
+}
+.theme_color_dark{
+    background-color: #2a2730 !important;
+}
+.text_theme_dark{
+    color: #2a2730 !important;
+}
+.text_theme{
+    color: #565062 !important;
+}
+.theme_color{
+    background-color: #565062 !important;
+}
+.card{
+    padding: 10px 20px;
+}
+.inline{
+    display: inline;
+    padding: 2px 5px;
+}
+.top_space{
+    margin-top: 40px;
+}
+.indent{
+    margin-left: 30px !important;
+}
+.bold{
+    font-weight: bolder;
+}
+.logo{
+    width: 45px;
+    height: auto;
+    margin-left: 50px;
+}
+.space{
+    margin-top: 10px;
+}
+.block{
+    display: block;
+}
+.small{
+    width: 100px;
+    height: auto;
+}
+.buffer{
+    padding-top: 150px;
+}
+.error{
+    color: rgb(170, 77, 138);
+}
+@media only screen and (max-width:760px){
+    .image-fill div{
+        width: 100% !important;
+        background-size: contain !important;
+
+    }
+    .image-fill{
+        height: 720px;
+    }
+    .sampleShare{
+        max-width: 100%;
+    }
+}
+@media only screen and (max-width:400px) {
+    .image-fill div{
+        width: 100% !important;
+        background-size: contain !important;
+
+    }
+    .image-fill{
+        height: 500px;
+    }
+    .logo{
+        margin-left: 0px;
+    }
+    .buffer{
+        padding-top: 80px;
+    }
+}

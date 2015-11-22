@@ -1,0 +1,86 @@
+<div ng-controller="WelcomeController">
+    <header>
+        <nav>
+            <div class="nav-wrapper theme_color">
+                <a href="" class="brand-logo space"><img class="logo" src="./images/logo.gif" alt="" /></a>
+                <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+                <ul class="right hide-on-med-and-down">
+                    <li><a href="" ng-click="login()">Log In</a></li>
+                </ul>
+                <ul class="side-nav" id="mobile-demo">
+                    <li><a href="" ng-click="login()">Log In</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <main>
+        <div ng-init="myPattern='./images/slogan.gif'" class="wrapper">
+            <div class="image-fill">
+                <div ng-parallax pattern="myPattern" speed='2.5' reverse='false'></div>
+            </div>
+            <div class="container row section">
+                <h4>A Community for Next-Level Humans</h4>
+                <p class="grey-text text-darken-3 lighten-3 flow-text">ReadIt! is a place for aspiring humans to access their full potential through the power of knowledge. By having clear goals and motivation through community, ReadIt members immerse themselves in the powerful works of old and new, carving a path to richer conversation and robust lives.</p>
+            </div>
+            <div class="container buffer">
+                <div class="divider"></div>
+            </div>
+            <div class=" container center-align buffer">
+                <div class="row">
+                    <div class="col s12 m4 space">
+                        <i class="medium material-icons">assessment</i>
+                        <h5>Track Progress</h5>
+                        <p class="flow-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea.
+                        </p>
+                    </div>
+                    <div class="col s12 m4 space">
+                        <i class="medium material-icons">forum</i>
+                        <h5>Converse in Forums</h5>
+                        <p class="flow-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+                        </p>
+                    </div>
+                    <div class="col s12 m4 space">
+                        <i class="medium material-icons">supervisor_account</i>
+                        <h5>Host Book Clubs</h5>
+                        <p class="flow-text">
+                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam.
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="container buffer">
+                <div class="divider"></div>
+            </div>
+            <div class="container buffer">
+                <h5>Share Your Badges on LinkedIn!</h5>
+                <a href="https://addtoprofile.linkedin.com/" target="_blank"><div class="addLI"></div></a>
+                <img class="sampleShare space right" src="./images/sampleAchievement.gif" />
+            </div>
+            <div class="buffer">
+
+            </div>
+            <div class="container buffer">
+                <div class="divider"></div>
+            </div>
+            <div class="center-align center container buffer">
+                <h5>Join Today!</h5>
+                <a href="#loginModal"><div class="loginButton"></div></a>
+            </div>
+        </div>
+        <div class="clear"></div>
+    </main>
+    <footer class="page-footer theme_color_dark">
+        <div class="footer-copyright">
+            <div class="row">
+                <div class="col s8">
+                    <p class="">&copy; 2015 Kelly Howard Inc.</p>
+                </div>
+                <div class="col s4">
+                    <a class="grey-text text-lighten-4 right" href="https://github.com/kellybhoward" target="_blank"><img class="logo" src="./images/Octocat.png" alt="" /></a>
+                </div>
+            </div>
+        </div>
+    </footer>
+</div>
