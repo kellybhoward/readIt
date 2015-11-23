@@ -2,19 +2,16 @@ myAppModule.controller('WelcomeController', ['$scope', '$rootScope', 'WelcomeFac
     $(document).ready(function(){
         $(".button-collapse").sideNav();
     })
-
-    if($rootScope.loggedIn == false){
-        console.log('user not logged in');
-        return $location.path('/');
-    }
-
     //logged in checks and logout
-    $scope.logout = function(){
-        $rootScope.loggedIn = false;
+    $scope.login = function(){
+        $rootScope.loggedIn = true;
         $rootScope.userName = "";
-        return $location.path('/');
+        return $location.path('/newsfeed');
     }
-
+    // if($rootScope.loggedIn == false){
+    //     console.log('user not logged in');
+    //     return $location.path('/');
+    // }
     console.log($rootScope.loggedIn);
     console.log('got to welcome controller!');
 

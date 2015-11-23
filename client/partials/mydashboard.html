@@ -1,0 +1,67 @@
+<header ng-controller="DashboardController">
+    <nav>
+        <div class="nav-wrapper theme_color">
+            <a href="" class="brand-logo space" ng-click="goToNewsfeed()"><img class="logo" src="./images/logo.gif" alt="" /></a>
+            <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
+            <ul class="right hide-on-med-and-down nav-menu">
+                <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
+                <li><a href="" ng-click="goToForum()">Forum</a></li>
+                <li><a href="" ng-click="goToEvents()">Events</a></li>
+                <li><a href="" ng-click="goToSuggestions()">Make a Suggestion</a></li>
+                <li><a href="" ng-click="logout()">Log Out</a></li>
+            </ul>
+            <ul class="side-nav" id="mobile-demo">
+                <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
+                <li><a href="" ng-click="goToForum()">Forum</a></li>
+                <li><a href="" ng-click="goToEvents()">Events</a></li>
+                <li><a href="" ng-click="goToSuggestions()">Make a Suggestion</a></li>
+                <li><a href="" ng-click="logout()">Log Out</a></li>
+            </ul>
+        </div>
+    </nav>
+</header>
+<main ng-controller="DashboardController">
+    <div class="container">
+        <div id="dashboardTitle"></div>
+        <div class="row">
+            <div class="col s12 m6">
+                <h5>Categories:</h5>
+                <div class="collection">
+                    <a href="" class="collection-item flow-text">History<span class="badge">1</span></a>
+                    <a href="" class="collection-item flow-text">Government<span class="badge">3</span></a>
+                    <a href="" class="collection-item flow-text">Economics<span class="new badge">4</span></a>
+                    <a href="" class="collection-item flow-text">Ethics<span class="badge">23</span></a>
+                    <a href="" class="collection-item flow-text">Philosophy<span class="badge">18</span></a>
+                    <a href="" class="collection-item flow-text">Religion<span class="badge">39</span></a>
+                    <a href="" class="collection-item flow-text">Environment<span class="badge">17</span></a>
+                    <a href="" class="collection-item flow-text">Fiction<span class="badge">13</span></a>
+                </div>
+            </div>
+            <div class="col s12 m6">
+                <div class="row">
+                    <div class="s12">
+                        <h5>My Goals:</h5>
+                    </div>
+                    <div class="s12">
+                        <h5>My Badges:</h5>
+                    </div>
+                    <div class="s12">
+                        <h5>Progress:</h5>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<footer class="page-footer theme_color_dark">
+    <div class="footer-copyright">
+        <div class="row">
+            <div class="col s8">
+                <p class="">&copy; 2015 Kelly Howard Inc.</p>
+            </div>
+            <div class="col s4">
+                <a class="grey-text text-lighten-4 right" href="https://github.com/kellybhoward" target="_blank"><img class="logo" src="./images/Octocat.png" alt="" /></a>
+            </div>
+        </div>
+    </div>
+</footer>

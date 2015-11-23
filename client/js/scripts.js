@@ -30,17 +30,13 @@ myAppModule.config(function($routeProvider){
         title: "ReadIt | My Dashboard",
         templateUrl: '/partials/mydashboard.html'
     })
-    .when('/rankings',{
-        title: "ReadIt | Rankings",
-        templateUrl: '/partials/rankings.html'
+    .when('/suggestions',{
+        title: "ReadIt | Make a Suggestion",
+        templateUrl: '/partials/suggestions.html'
     })
     .when('/bookprofile',{
         title: "ReadIt | Book Profile",
         templateUrl: '/partials/bookprofile.html'
-    })
-    .when('/category',{
-        title: "ReadIt | Category",
-        templateUrl: '/partials/category.html'
     })
     .when('/events',{
         title: "ReadIt | Community Events",
