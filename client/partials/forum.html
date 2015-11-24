@@ -4,14 +4,14 @@
             <a href="" class="brand-logo space" ng-click="goToNewsfeed()"><img class="logo" src="./images/logo.gif" alt="" /></a>
             <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down nav-menu">
-                <li><a href="" ng-click="goToMyDash()">My Dashboard</a></li>
+                <li><a href="" ng-click="goToMyDashboard()">My Dashboard</a></li>
                 <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
                 <li><a href="" ng-click="goToEvents()">Events</a></li>
                 <li><a href="" ng-click="goToSuggestions()">Make a Suggestion</a></li>
                 <li><a href="" ng-click="logout()">Log Out</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="" ng-click="goToMyDash()">My Dashboard</a></li>
+                <li><a href="" ng-click="goToMyDashboard()">My Dashboard</a></li>
                 <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
                 <li><a href="" ng-click="goToEvents()">Events</a></li>
                 <li><a href="" ng-click="goToSuggestions()">Make a Suggestion</a></li>
@@ -27,14 +27,7 @@
             <div class="row">
                 <div class="col s12">
                     <div class="collection">
-                        <a href="" class="collection-item flow-text">History<span class="badge">1</span></a>
-                        <a href="" class="collection-item flow-text">Government<span class="badge">3</span></a>
-                        <a href="" class="collection-item flow-text">Economics<span class="new badge">4</span></a>
-                        <a href="" class="collection-item flow-text">Ethics<span class="badge">23</span></a>
-                        <a href="" class="collection-item flow-text">Philosophy<span class="badge">18</span></a>
-                        <a href="" class="collection-item flow-text">Religion<span class="badge">39</span></a>
-                        <a href="" class="collection-item flow-text">Environment<span class="badge">17</span></a>
-                        <a href="" class="collection-item flow-text">Fiction<span class="badge">13</span></a>
+                        <a href="" ng-repeat="category in categories" ng-click="goToForumCategory(category.name)" class="collection-item flow-text">{{category.name}}<span class="badge" ng-bind="category.posts.length"></span></a>
                     </div>
                 </div>
             </div>

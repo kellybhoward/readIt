@@ -4,7 +4,7 @@
             <a href="" class="brand-logo space" ng-click="goToNewsfeed()"><img class="logo" src="./images/logo.gif" alt="" /></a>
             <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down nav-menu">
-                <li><a href="" ng-click="goToMyDash()">My Dashboard</a></li>
+                <li><a href="" ng-click="goToMyDashboard()">My Dashboard</a></li>
                 <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
                 <li><a href="" ng-click="goToForum()">Forum</a></li>
                 <li><a href="" ng-click="goToEvents()">Events</a></li>
@@ -12,7 +12,7 @@
                 <li><a href="" ng-click="logout()">Log Out</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="" ng-click="goToMyDash()">My Dashboard</a></li>
+                <li><a href="" ng-click="goToMyDashboard()">My Dashboard</a></li>
                 <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
                 <li><a href="" ng-click="goToForum()">Forum</a></li>
                 <li><a href="" ng-click="goToEvents()">Events</a></li>
@@ -26,86 +26,35 @@
     <div class="container">
         <div id="forumTitle"></div>
         <div class="center card">
-            <h4 class="text_theme">History</h4>
-
+            <h4 class="text_theme" ng-bind="category.name"></h4>
         </div>
-        <div class="row">
+        <div>
+            <h5 class="text_theme">Start a Discussion, {{user.given_name}}</h5>
+            <textarea class="materialize-textarea" name="post" rows="8" cols="40" ng-model="newPost.text"></textarea>
+            <input ng-click="addPost()" class="btn theme_color right" type="submit" name="addPost" value="Begin Discussion"/>
+            <div class="clear"></div>
+        </div>
+        <div class="row space" ng-repeat="post in category.posts track by $index">
             <div class="col s1 center-align">
                 <a href=""><i class="tiny material-icons block text_theme_light">thumb_up</i></a>
                 <a href=""><i class="tiny material-icons block space text_theme_light">thumb_down</i></a>
             </div>
             <div class="col s11">
                 <blockquote class="flow-text">
-                    <a href="" class="text_theme_light">David: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor?
+                    <a href="" class="text_theme_light" ng-bind="post._user.given_name+': '"></a>{{post.text}}
                     <div class="right">
-                        <a href="" ng-click="showComments()" class="text_theme_light">Show/Hide Replies (3)</a>
+                        <a href="" ng-click="showComments($index)" class="text_theme_light"><p>Show/Hide Replies ({{post.comments.length}})</p></a>
                     </div>
                 </blockquote>
-                <div class="row" ng-show="myComments">
-                    <div class="col s10 right">
+                <div class="row" ng-show="myComments.$index">
+                    <div class="col s10 right" ng-repeat="comment in post.comments">
                         <blockquote>
-                            <a href="" class="text_theme_light">Jimmy: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
+                            <a href="" class="text_theme_light" ng-bind="comment._user.given_name+': '"></a>{{comment.text}}
                         </blockquote>
                     </div>
                     <div class="col s10 right">
-                        <blockquote>
-                            <a href="" class="text_theme_light">Pauline: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </blockquote>
-                    </div>
-                    <div class="col s10 right">
-                        <blockquote>
-                            <a href="" class="text_theme_light">Francis: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </blockquote>
-                    </div>
-                    <div class="col s10 right">
-                        <input type="text" name="comment" placeholder="your reply">
-                        <input type="submit" class="right btn theme_color" name="addComment" value="Reply">
-                    </div>
-                </div>
-
-            </div>
-        </div>
-        <div class="row">
-            <div class="col s1 center-align">
-                <a href=""><i class="tiny material-icons block text_theme_light">thumb_up</i></a>
-                <a href=""><i class="tiny material-icons block space text_theme_light">thumb_down</i></a>
-            </div>
-            <div class="col s11">
-                <blockquote class="flow-text">
-                    <a href="" class="text_theme_light">Margot: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua?
-                    <div class="right">
-                        <a href="" ng-click="showComments()" class="text_theme_light">Show/Hide Replies (5)</a>
-                    </div>
-                </blockquote>
-                <div class="row" ng-show="myComments">
-                    <div class="col s10 right">
-                        <blockquote>
-                            <a href="" class="text_theme_light">Jimmy: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </blockquote>
-                    </div>
-                    <div class="col s10 right">
-                        <blockquote>
-                            <a href="" class="text_theme_light">Pauline: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </blockquote>
-                    </div>
-                    <div class="col s10 right">
-                        <blockquote>
-                            <a href="" class="text_theme_light">Miles: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </blockquote>
-                    </div>
-                    <div class="col s10 right">
-                        <blockquote>
-                            <a href="" class="text_theme_light">Olivia: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </blockquote>
-                    </div>
-                    <div class="col s10 right">
-                        <blockquote>
-                            <a href="" class="text_theme_light">Francis: </a>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore.
-                        </blockquote>
-                    </div>
-                    <div class="col s10 right">
-                        <input type="text" name="comment" placeholder="your reply">
-                        <input type="submit" class="right btn theme_color" name="addComment" value="Reply">
+                        <input type="text" name="comment" placeholder="your reply" ng-model="newComment[$index].text"/>
+                        <input ng-click="addComment(post._id, $index)" type="submit" class="right btn theme_color" name="addComment" value="Reply">
                     </div>
                 </div>
             </div>

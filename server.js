@@ -1,25 +1,36 @@
 //express
 var express = require('express');
 var app = express();
-//path
 var path = require('path');
-//body parser and use with json data not encoded
 var bodyParser = require("body-parser");
-app.use(bodyParser.json());
-//moment for timestamps
 var moment = require("moment");
 moment().format();
-//set express static path to the client folder
-app.use(express.static(path.join(__dirname, './client')));
-//require mongoose to connect to mongo
+//part of the login google oauth
+var passport = require('passport');
+var util = require('util');
+
+var jwt = require('express-jwt');
+
+var jwtCheck = jwt({
+  secret: new Buffer('Z7Y6Qp0vhwLXBpAXbd5qOnAJflwVYww_xCWeJEAzzIULTKAFuEjPlnAfijYKi5O-', 'base64'),
+  audience: 'SNHEs6HHm31Cbm6cUC3x8QGJqaf3FjPr'
+});
+app.use(bodyParser.json());
 require('./server/config/mongoose.js');
-//require routes and pass in the app to routes
 require('./server/config/routes.js')(app);
-//listen for requests on the http port 8000
+
+app.use(express.static(path.join(__dirname, './client')));
+app.use('./server/config/routes.js', jwtCheck);
+
 
 var server = app.listen(8000, function(){
     console.log('cool stuff on: 8000');
 });
+
+// trying out google oauth with Passport
+
+
+
 //set up sockets
 var io = require('socket.io').listen(server);
 var map = {};

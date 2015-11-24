@@ -4,14 +4,14 @@
             <a href="" class="brand-logo space" ng-click="goToNewsfeed()"><img class="logo" src="./images/logo.gif" alt="" /></a>
             <a href="" data-activates="mobile-demo" class="button-collapse"><i class="material-icons">menu</i></a>
             <ul class="right hide-on-med-and-down nav-menu">
-                <li><a href="" ng-click="goToMyDash()">My Dashboard</a></li>
+                <li><a href="" ng-click="goToMyDashboard()">My Dashboard</a></li>
                 <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
                 <li><a href="" ng-click="goToForum()">Forum</a></li>
                 <li><a href="" ng-click="goToEvents()">Events</a></li>
                 <li><a href="" ng-click="logout()">Log Out</a></li>
             </ul>
             <ul class="side-nav" id="mobile-demo">
-                <li><a href="" ng-click="goToMyDash()">My Dashboard</a></li>
+                <li><a href="" ng-click="goToMyDashboard()">My Dashboard</a></li>
                 <li><a href="" ng-click="goToNewsfeed()">Newsfeed</a></li>
                 <li><a href="" ng-click="goToForum()">Forum</a></li>
                 <li><a href="" ng-click="goToEvents()">Events</a></li>
@@ -25,8 +25,17 @@
         <div id="suggestionTitle"></div>
         <div class="container">
             <p class="flow-text">
-                Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco.
+                The only way to improve your own community is by participating. Please let us know what you think about the book selection in each knowledge track. If you have any book recommendations to add, we'd love to hear it!
             </p>
+            <div class="row">
+                <div class="col s12 m10 offset-m1">
+                    <form>
+                        <textarea class="materialize-textarea" name="suggestion" rows="8" cols="40" ng-model="newSuggestion.reason" placeholder="your suggestion..."></textarea>
+                        <input type="text" name="book_title" placeholder="book title... (optional)" ng-model="newSuggestion.bookTitle"/>
+                        <input type="submit" class="btn theme_color_light right" name="name" value="Submit Suggestion" ng-click="addSuggestion()"/>
+                    </form>
+                </div>
+            </div>
         </div>
     </div>
 </main>

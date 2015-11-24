@@ -2,13 +2,29 @@ var mongoose = require('mongoose');
 //include necessary mongoose model to do the functions through
 var User = mongoose.model('User');
 module.exports = {
-    show: function(req,res){
+    showAll: function(req,res){
         User.find({}, function(err, users){
             if(err){
                 console.log('something went wrong');
             } else{
                 console.log('getting users!');
                 res.json(users);
+            }
+        })
+    },
+    storeUser: function(req, res) {
+        var user = new User({name: req.body.name,
+        given_name: req.body.given_name,
+        family_name: req.body.family_name,
+        picture: req.body.picture,
+        location: req.body.location.name,
+        user_id: req.body.user_id});
+        user.save(function(err){
+            if(err){
+                console.log('something went wrong');
+            } else{
+                console.log('successfully added user!');
+                res.redirect('/');
             }
         })
     },
@@ -35,18 +51,19 @@ module.exports = {
             }
         })
     },
-    addUser: function(req, res) {
-        console.log(req.body.name);
-        var user = new User({name: req.body.name});
-        user.save(function(err){
+    getUserById: function(req, res){
+        console.log(req.body);
+        User.find({user_id: req.body.user_id}).exec( function(err, user){
+            console.log(user);
             if(err){
-                console.log('something went wrong');
+                console.log('something went wrong with getting user');
             } else{
-                console.log('successfully added user!');
-                res.redirect('/');
+                console.log('getting a user!');
+                console.log(user);
+                res.json(user);
             }
         })
-    },
+    }
     // increaseTopicCount: function(req, res){
     //     console.log('made it to increaseTopicCount');
     //     var conditions = {name: req.body.name}, update = {$inc: {topicCount: 1}}, options = {multi: false};

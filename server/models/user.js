@@ -4,10 +4,16 @@ var deepPopulate = require('mongoose-deep-populate')(mongoose);
 //name schema and include document attributes
 var UserSchema = new mongoose.Schema({
     name: String,
-    bids: [{type: Schema.Types.ObjectId, ref: 'Bid'}]
+    given_name: String,
+    family_name: String,
+    picture: String,
+    location: String,
+    user_id: String,
+    posts: [{type: Schema.Types.ObjectId, ref: 'Post'}],
+    comments: [{type: Schema.Types.ObjectId, ref: 'Comment'}],
+    booksRead: [{type: Schema.Types.ObjectId, ref: 'Book'}],
+    date_created: {type: Date, default: Date.now}
 })
-//validation paths for the attributes in the object
-UserSchema.path('name').required(true, "Name cannot be blank");
 
 //use deepPopulate plugin
 UserSchema.plugin(deepPopulate);

@@ -1,11 +1,14 @@
-myAppModule.controller('ForumController', ['$scope', '$rootScope', 'ForumFactory', '$location', function($scope, $rootScope, ForumFactory, $location){
+myAppModule.controller('ForumController', ['auth', 'store', '$http', '$scope', '$rootScope', 'ForumFactory', '$location', function(auth, store, $http, $scope, $rootScope, ForumFactory, $location){
+    console.log('got to forum controller!');
     $(document).ready(function(){
         $(".button-collapse").sideNav();
     })
-    // if($rootScope.loggedIn == false){
-    //     console.log('user not logged in');
-    //     return $location.path('/');
-    // }
+    $scope.logout = function() {
+        auth.signout();
+        store.remove('profile');
+        store.remove('token');
+        $location.path('/');
+    }
     //nav bar functions
     $scope.goToMyDashboard = function(){
         return $location.path('/mydashboard');
@@ -22,14 +25,13 @@ myAppModule.controller('ForumController', ['$scope', '$rootScope', 'ForumFactory
     $scope.goToSuggestions = function(){
         return $location.path('/suggestions');
     }
-    $scope.logout = function(){
-        $rootScope.loggedIn = false;
-        $rootScope.userName = "";
-        return $location.path('/');
+    $scope.categories = [];
+    ForumFactory.showCategories(function(data){
+        $scope.categories = data;
+    })
+    $rootScope.categoryName = "";
+    $scope.goToForumCategory = function(categoryName){
+        $rootScope.categoryName = categoryName;
+        $location.path('/forum/'+categoryName);
     }
-
-    console.log($rootScope.loggedIn);
-    console.log('got to forum controller!');
-
-
 }])

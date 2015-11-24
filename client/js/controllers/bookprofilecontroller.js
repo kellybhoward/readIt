@@ -1,13 +1,14 @@
-myAppModule.controller('BookProfileController', ['$scope', '$rootScope', 'BookProfileFactory', '$location', function($scope, $rootScope, BookProfileFactory, $location){
+myAppModule.controller('BookProfileController', ['auth', 'store', '$http', '$scope', '$rootScope', 'BookProfileFactory', '$location', function(auth, store, $http, $scope, $rootScope, BookProfileFactory, $location){
+    console.log('got to book profile controller!');
     $(document).ready(function(){
         $(".button-collapse").sideNav();
     })
-
-    // if($rootScope.loggedIn == false){
-    //     console.log('user not logged in');
-    //     return $location.path('/');
-    // }
-
+    $scope.logout = function() {
+        auth.signout();
+        store.remove('profile');
+        store.remove('token');
+        $location.path('/');
+    }
     //nav bar functions
     $scope.goToMyDashboard = function(){
         return $location.path('/mydashboard');
@@ -24,15 +25,5 @@ myAppModule.controller('BookProfileController', ['$scope', '$rootScope', 'BookPr
     $scope.goToSuggestions = function(){
         return $location.path('/suggestions');
     }
-    $scope.logout = function(){
-        $rootScope.loggedIn = false;
-        $rootScope.userName = "";
-        return $location.path('/');
-    }
-
-
-    console.log($rootScope.loggedIn);
-    console.log('got to book profile controller!');
-
 
 }])

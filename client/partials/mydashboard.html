@@ -1,4 +1,4 @@
-<header ng-controller="DashboardController">
+<header  ng-controller="DashboardController">
     <nav>
         <div class="nav-wrapper theme_color">
             <a href="" class="brand-logo space" ng-click="goToNewsfeed()"><img class="logo" src="./images/logo.gif" alt="" /></a>
@@ -24,30 +24,61 @@
     <div class="container">
         <div id="dashboardTitle"></div>
         <div class="row">
+
             <div class="col s12 m6">
-                <h5>Categories:</h5>
-                <div class="collection">
-                    <a href="" class="collection-item flow-text">History<span class="badge">1</span></a>
-                    <a href="" class="collection-item flow-text">Government<span class="badge">3</span></a>
-                    <a href="" class="collection-item flow-text">Economics<span class="new badge">4</span></a>
-                    <a href="" class="collection-item flow-text">Ethics<span class="badge">23</span></a>
-                    <a href="" class="collection-item flow-text">Philosophy<span class="badge">18</span></a>
-                    <a href="" class="collection-item flow-text">Religion<span class="badge">39</span></a>
-                    <a href="" class="collection-item flow-text">Environment<span class="badge">17</span></a>
-                    <a href="" class="collection-item flow-text">Fiction<span class="badge">13</span></a>
+                <div class="row">
+                    <div class="s12 card-panel">
+                        <img src="{{user.picture}}" class="profile_photo block right" alt="" />
+                        <h5 class="flow-text"><span ng-bind="user.nickname"></span></h5>
+                        <h6><span ng-bind="user.headline"></span></h6>
+                        <h6><span ng-bind="user.industry"></span></h6>
+                        <div class="clear"></div>
+                        <h5 class="flow-text">My Badges:</h5>
+                        <div class="badges">
+                            <div ng-repeat="badge in badges" style="display: inline;">
+                                <div ng-if="badge.name == 'History'" style="display:inline-block; height: 50px; width: 50px; background-image: url({{badge.src}}); background-size: contain; margin: 2px 5px; background-repeat: no-repeat;"></div>
+                            </div>
+                        </div>
+                        <h5 class="flow-text">Available Badges:</h5>
+                        <div class="badges">
+                            <div ng-repeat="badge in badges" style="display: inline;">
+                                <div ng-if="badge.name !== 'History'" style="display:inline-block; height: 50px; width: 50px; background-image: url({{badge.src}}); background-size: contain; margin: 2px 5px; background-repeat: no-repeat;"></div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col s12 m6">
-                <div class="row">
-                    <div class="s12">
-                        <h5>My Goals:</h5>
-                    </div>
-                    <div class="s12">
-                        <h5>My Badges:</h5>
-                    </div>
-                    <div class="s12">
-                        <h5>Progress:</h5>
-                    </div>
+                <h5>Categories:</h5>
+                <div class="collection" >
+                    <span ng-repeat="category in categories track by $index">
+                        <a href="" class="collection-item flow-text" ng-click="toggleShowBooks($index)" ><div style="display:inline-block; height: 30px; width: 30px; background-image: url({{category.badge.src}}); background-size: contain; background-repeat: no-repeat; margin-right: 10px;"></div>{{category.name}}</a>
+                        <div class="{{$index}}" style="display: none">
+                            <div class="book_info" ng-repeat="book in category.books">
+                                <div class="row">
+                                    <div class="col s1">
+                                        <div class="top_space" style="margin-left: 10px;">
+                                            <input id="{{book._id}}" type="checkbox" name="name" ng-model="book.finished"/>
+                                            <label for="{{book._id}}"></label>
+                                        </div>
+                                    </div>
+                                    <div class="col s3">
+                                        <a href="{{book.amazonURL}}" target="_blank">
+                                        <div style="background-image: url({{book.coverURL}}); background-repeat: no-repeat; background-size: contain; height: 150px; width: 100%; margin: 10px 0px 0px 10px;"></div>
+                                        </a>
+                                    </div>
+                                    <div class="col s8">
+                                        <div class="card-panel">
+                                            <h5 ng-bind="book.title" class="flow-text"></h5>
+                                            <h6 ng-bind="book.subtitle" class="flow-text"></h6>
+                                            <p ng-if="book.audio"><i class="material-icons text_theme_light">hearing</i></p>
+                                            <p class="inline">(Have you read it yet?) <h5 ng-if="book.finished" class="inline flow-text text_theme_light">Yes!</h5></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </span>
                 </div>
             </div>
         </div>

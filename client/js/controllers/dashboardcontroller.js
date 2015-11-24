@@ -1,12 +1,15 @@
-myAppModule.controller('DashboardController', ['$scope', '$rootScope', 'DashboardFactory', '$location', function($scope, $rootScope, DashboardFactory, $location){
+myAppModule.controller('DashboardController', ['auth', 'store', '$http', '$scope', '$rootScope', 'DashboardFactory', 'ForumFactory', '$location', '$timeout', function(auth, store, $http, $scope, $rootScope, DashboardFactory, ForumFactory, $location, $timeout){
+    console.log('got to dashboard controller!');
     $(document).ready(function(){
         $(".button-collapse").sideNav();
+        $('.tooltipped').tooltip({delay: 50});
     })
-    // if($rootScope.loggedIn == false){
-    //     console.log('user not logged in');
-    //     return $location.path('/');
-    // }
-
+    $scope.logout = function() {
+        auth.signout();
+        store.remove('profile');
+        store.remove('token');
+        $location.path('/');
+    }
     //nav bar functions
     $scope.goToMyDashboard = function(){
         return $location.path('/mydashboard');
@@ -28,9 +31,37 @@ myAppModule.controller('DashboardController', ['$scope', '$rootScope', 'Dashboar
         $rootScope.userName = "";
         return $location.path('/');
     }
+    $scope.user = auth.profile;
+    $scope.badges = [];
+    DashboardFactory.getBadges(function(data){
+        $scope.badges = data;
+        console.log($scope.badges);
+    })
+    $scope.books = [];
+    DashboardFactory.getBooks(function(data){
+        $scope.books = data;
+    })
+    $scope.categories = [];
+    ForumFactory.showCategories(function(data){
+        console.log(data);
+        for(var i = 0; i< data.length; i++){
+            for(var b = 0; b<$scope.books.length; b++){
+                if(data[i].name == $scope.books[b].categoryName){
+                    data[i].books.push($scope.books[b]);
+                }
+                for(var t = 0; t<$scope.badges.length; t++){
+                    if(data[i].name == $scope.badges[t].name){
+                        console.log($scope.badges[t].name);
+                        data[i].badge = $scope.badges[t];
+                    }
+                }
+            }
 
-    console.log($rootScope.loggedIn);
-    console.log('got to dashboard controller!');
-
-
+        }
+        $scope.categories = data;
+        $('.tooltipped').tooltip({delay: 50});
+    });
+    $scope.toggleShowBooks = function(index){
+        $("."+index).toggle();
+    }
 }])

@@ -1,0 +1,48 @@
+database design
+
+users collection
+name: String,
+given_name: String,
+family_name: String,
+picture: String,
+location: String,
+user_id: String
+posts: [{}];
+comments: [{}];
+booksRead: [{}];
+
+posts collection
+_category: {}
+_user: {}
+text:
+comments: [{}];
+
+comments collection
+text:
+_user: {}
+_post: {}
+
+categories collection
+name:
+posts: [{}]
+books: [{}]
+
+books collection
+_category: {}
+_user: {}
+title:
+subtitle:
+author:
+ISBN:
+numPages:
+price:
+coverURL:
+finished:
+
+suggestions
+_user: {}
+bookTitle:
+reason:
+
+Events
+latLon:

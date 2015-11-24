@@ -19,8 +19,8 @@ select{
 .text_theme_dark{
     color: #2a2730 !important;
 }
-.text_theme_dark:hover{
-    color: #565062 !important;
+a:hover{
+    color: #85818f !important;
 }
 .text_theme{
     color: #565062 !important;
@@ -33,9 +33,6 @@ select{
 }
 .text_theme_light{
     color: #929aa7 !important;
-}
-.text_theme_light:hover{
-    color: #565062 !important;
 }
 .card{
     padding: 10px 20px;
@@ -74,6 +71,9 @@ select{
 .error{
     color: rgb(170, 77, 138);
 }
+.top{
+    vertical-align: top;
+}
 /*End Classes for Entire Project-----------------------------*/
 
 /*Sticky Footer in Materialize-----------------------------*/
@@ -91,7 +91,7 @@ main {
 .nav-menu li a{
     font-size: 1.2em;
     font-weight: 200;
-    padding: 0px 50px;
+    padding: 0px 30px;
 }
 
 
@@ -156,6 +156,7 @@ main {
 }
 .collection a.collection-item:not(.active):hover{
     background-color: #d0c9dd !important;
+    margin-left: 20px;
 }
 /*End Forum Page*/
 
@@ -175,6 +176,14 @@ blockquote{
     background-repeat: no-repeat;
     height: 150px;
 }
+.profile_photo{
+    border: 2px solid black;
+    border-radius: 5px;
+}
+.small_badge{
+    width: 50px;
+    height: 50px;
+}
 /*End Dashboard*/
 
 /*Events*/
@@ -185,8 +194,8 @@ blockquote{
     background-repeat: no-repeat;
     height: 150px;
 }
-#map{
-    height: 100%;
+iframe{
+    margin: 0px auto;
 }
 /*End Events*/
 

@@ -1,11 +1,14 @@
-myAppModule.controller('SuggestionController', ['$scope', '$rootScope', 'SuggestionFactory', '$location', function($scope, $rootScope, SuggestionFactory, $location){
+myAppModule.controller('SuggestionController', ['auth', 'store', '$http', '$scope', '$rootScope', 'SuggestionFactory', '$location', function(auth, store, $http, $scope, $rootScope, SuggestionFactory, $location){
+    console.log('got to suggestion controller!');
     $(document).ready(function(){
         $(".button-collapse").sideNav();
     })
-    // if($rootScope.loggedIn == false){
-    //     console.log('user not logged in');
-    //     return $location.path('/');
-    // }
+    $scope.logout = function() {
+        auth.signout();
+        store.remove('profile');
+        store.remove('token');
+        $location.path('/');
+    }
     //nav bar functions
     $scope.goToMyDashboard = function(){
         return $location.path('/mydashboard');
@@ -22,14 +25,14 @@ myAppModule.controller('SuggestionController', ['$scope', '$rootScope', 'Suggest
     $scope.goToSuggestions = function(){
         return $location.path('/suggestions');
     }
-    $scope.logout = function(){
-        $rootScope.loggedIn = false;
-        $rootScope.userName = "";
-        return $location.path('/');
+    $scope.user = auth.profile;
+    $scope.addSuggestion = function(){
+        if($scope.newSuggestion == undefined){
+            
+        }
+        else{
+            alert("Thank you!");
+            return $location.path('/newsfeed');
+        }
     }
-
-    console.log($rootScope.loggedIn);
-    console.log('got to suggestion controller!');
-
-
 }])
