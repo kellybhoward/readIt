@@ -29,10 +29,11 @@
                     <div class="col s12">
                         <h5 class="text_theme_light">Upcoming Events:</h5>
                         <div ng-repeat="event in events">
-                            <div class="left">
-                                <p><span ng-bind="event.bookTopic"></span></p>
+                            <div class="left" style="margin-left: 20px">
+                                <h5><span ng-bind="event.bookTopic"></span></h5>
                                 <p><span ng-bind="event.locationName"></span></p>
                                 <p><span ng-bind="event.city+', '+event.state"</span></p>
+                                <p><span ng-bind="'Notes: '+event.notes"></span></p>
                             </div>
                         </div>
                         <div class="clear"></div>
@@ -59,7 +60,7 @@
                             width="100%"
                             height="450"
                             frameborder="0" style="border:0"
-                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB-v1toO2x1tqe670FIShsnsZRXERSXNNY&q=San+Jose+Community+Center,San+Jose+CA" allowfullscreen>
+                            src="https://www.google.com/maps/embed/v1/place?key=AIzaSyB-v1toO2x1tqe670FIShsnsZRXERSXNNY&q=AFK+Lounge,San+Jose+CA" allowfullscreen>
                         </iframe>
                     </div>
                 </div>

@@ -22,16 +22,17 @@ BookSchema.plugin(deepPopulate);
 var Book = mongoose.model('Book', BookSchema);
 
 // db.books.insert({
-//     title: "Smithsonian Timelines of History",
+//     title: "Economics in One Lesson",
 //     subtitle: "",
-//     author: "D.K. Publishing",
-//     ISBN: 0756686814,
-//     numPages: 512,
-//     price: "$33.55",
-//     coverURL: "http://www4.alibris-static.com/smithsonian-timelines-of-history/isbn/9780756686819_l.jpg",
-//     amazonURL: "http://www.amazon.com/Timelines-History-DK-Publishing/dp/0756686814/ref=tmm_hrd_swatch_0?_encoding=UTF8&qid=&sr=",
+//     author: "Henry Hazlitt",
+//     ISBN: 0517548232,
+//     numPages: 218,
+//     price: "$8.42",
+//     coverURL: "http://www.google.com/imgres?imgurl=http://www.intellectualtakeout.org/sites/ito/files/economics_in_one_lesson.jpeg&imgrefurl=http://www.intellectualtakeout.org/blog/11-painfully-accurate-quotes-hazlitts-economics-one-lesson&h=700&w=459&tbnid=0Ttv0FLXcHudRM:&docid=oz7YfjilpRDn9M&ei=HN1UVtTvLsOkeob9nOgI&tbm=isch&ved=0ahUKEwjU7aDXhqrJAhVDkh4KHYY-B40QMwgfKAIwAg",
+//     amazonURL: "http://www.amazon.com/Economics-One-Lesson-Shortest-Understand/dp/0517548232/ref=tmm_pap_title_0?_encoding=UTF8&qid=&sr=",
 //     finished: false,
-//     categoryName: "History"
+//     categoryName: "Economics",
+//     audio: true
 // })
 
 // db.books.update(
@@ -42,3 +43,4 @@ var Book = mongoose.model('Book', BookSchema);
 //         }
 //     }
 // )
+// http://www.intellectualtakeout.org/sites/ito/files/economics_in_one_lesson.jpeg

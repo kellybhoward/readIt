@@ -69,8 +69,11 @@
                                     </div>
                                     <div class="col s8">
                                         <div class="card-panel">
-                                            <h5 ng-bind="book.title" class="flow-text"></h5>
-                                            <h6 ng-bind="book.subtitle" class="flow-text"></h6>
+                                            <!-- <h5 ng-bind="book.title" class="flow-text"></h5>
+                                            <p ng-bind="book.subtitle"></p> -->
+                                            <h6 ng-bind="'Author: '+book.author"></h6>
+                                            <p ng-bind="'Page Count: '+book.numPages"></p>
+                                            <p ng-bind="'Price: '+book.price"></p>
                                             <p ng-if="book.audio"><i class="material-icons text_theme_light">hearing</i></p>
                                             <p class="inline">(Have you read it yet?) <h5 ng-if="book.finished" class="inline flow-text text_theme_light">Yes!</h5></p>
                                         </div>
