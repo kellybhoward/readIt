@@ -22,10 +22,13 @@ require('./server/config/routes.js')(app);
 app.use(express.static(path.join(__dirname, './client')));
 app.use('./server/config/routes.js', jwtCheck);
 
-
-var server = app.listen(8000, function(){
-    console.log('cool stuff on: 8000');
+var server = app.listen(process.env.PORT || 3000, function(){
+console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
 });
+
+// var server = app.listen(8000, function(){
+//     console.log('cool stuff on: 8000');
+// });
 
 // trying out google oauth with Passport
 
